@@ -1,1 +1,4 @@
-this is a file in another branch
+GIT
+
+Git is an open source version control system
+

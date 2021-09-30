@@ -1,1 +1,4 @@
-Git is awesome
+Git's main advantage
+
+Git is open source and a distributed system
+

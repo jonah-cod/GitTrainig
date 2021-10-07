@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map and video</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        iframe {
+            width: 500px;
+            height: 250px;
+        }
+        
+        .video {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 2px 5px 5px grey;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .map {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 2px 5px 5px grey;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video">
+        <h1>Nature</h1>
+        <video controls width="500">
+
+            <source src="./video/video_preview_h264.mp4"
+                    type="video/mp4">
+        
+            Sorry, your browser does not support embedded videos.
+        </video>
+    </div>
+    <div class="map">
+        <h1>Location</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.21115995091!2d36.917681528601854!, 215)3d-0.43995471782473605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285dfed09e0ebf%3A0x829716f702f65e9e!2sNyeri!5e0!3m2!1sen!2ske!4v1633440522527!5m2!1sen!2ske"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</body>
+
+</html>

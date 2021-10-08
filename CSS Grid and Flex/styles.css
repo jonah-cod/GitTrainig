@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(245, 243, 243);
+    padding: 10px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+}
+
+.nav>a {
+    text-decoration: none;
+    color: rgb(78, 77, 77);
+    font-weight: 550;
+    padding: 5px 30px;
+    background-color: rgba(255, 255, 255, 0.986);
+    box-shadow: 2px 2px 5px 5px rgb(228, 225, 225);
+    width: 85%;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 'main main main member' 'main main main Promember';
+    margin: 20px auto;
+}
+
+.main {
+    grid-area: main;
+    background: url(./images/austin-poon-JO_S6ewBqAk-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    max-width: 980px;
+    min-height: 350px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 40px;
+}
+
+.main>h1 {
+    margin: 20px 0;
+}
+
+.main>button {
+    padding: 5px 10px;
+    margin: 20px 0;
+    width: fit-content;
+    color: white;
+    background-color: grey;
+    border: none;
+    border-radius: 2px;
+    font-weight: 550;
+}
+
+.membership {
+    grid-area: member;
+    background-color: rgba(255, 255, 255, 0.986);
+    box-shadow: 2px 2px 5px 5px rgb(228, 225, 225);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-height: 200px;
+}
+
+.but {
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    font-weight: 550;
+    background-color: rgb(78, 77, 77);
+    color: white;
+}
+
+.proMembership {
+    grid-area: Promember;
+    background-color: rgba(255, 255, 255, 0.986);
+    box-shadow: 2px 2px 5px 5px rgb(228, 225, 225);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-height: 200px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footerDivs {
+    background-color: rgba(255, 255, 255, 0.986);
+    box-shadow: 2px 2px 5px 5px rgb(228, 225, 225);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    width: 100%;
+}
+
+.footerDivs>i {
+    margin: 10px 0;
+}
+
+.footerDivs>h4 {
+    margin: 10px;
+}
+
+.footerDivs>p {
+    margin: 10px;
+    font-size: .9rem;
+}
+
+@media (max-width:600px) {
+    .nav {
+        flex-direction: column;
+    }
+    .container {
+        display: grid;
+        gap: 20px;
+        grid-template-areas: 'main ' 'main' 'member' 'Promember';
+        margin: 20px auto;
+    }
+    .footer {
+        flex-direction: column;
+    }
+}

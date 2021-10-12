@@ -4,14 +4,19 @@ function giveMeASolution(arr) {
         if (arr[i] == "+" && i > 1) {
             newArray.push((newArray[(newArray.length) - 1]) + newArray[(newArray.length - 2)]);
         } else if (arr[i] == "D" && i > 1) {
-            newArray.push(arr[i - 1] * arr[i - 2])
+            newArray.push(newArray[(newArray.length) - 1] * newArray[(newArray.length) - 2])
         } else if (arr[i] == "C" && i > 1) {
             newArray.pop()
         } else if (typeof(arr[i]) == "number") {
             newArray.push(arr[i]);
+        } else {
+            console.log("input a valid array");
         }
     }
-    console.log(newArray);
+
+    console.log(newArray.reduce((sum, item) => {
+        return (sum += item)
+    }), 0);
 }
 
 const arra = [10, 9, "+", "D", "C", "+"]

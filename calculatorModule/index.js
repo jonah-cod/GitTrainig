@@ -1,19 +1,24 @@
-let orders = {
-    0: {
-        id: 0,
-        name: "",
-        price: 0,
-        quantity: 0
+//#region set no. of orders to cart
+function setCartNumbers() {
+    if (JSON.parse(localStorage.getItem("orders")) == null || JSON.parse(localStorage.getItem("orders")) == undefined) {
+        document.getElementById("cart").innerText = 0
+    } else {
+        document.getElementById("cart").innerText = Object.keys(JSON.parse(localStorage.getItem("orders"))).length;
+
     }
 }
-localStorage.setItem("orders", JSON.stringify(orders))
+
+setCartNumbers()
+    //#endregion
+
+//localStorage.removeItem("orders")
 
 
+// console.log(Object.keys(JSON.parse(localStorage.getItem("orders"))).length);
 
+// document.getElementById("cart").innerText = Object.keys(JSON.parse(localStorage.getItem("orders"))).length;
 
-
-
-console.log(orders);
+let orders;
 
 let counter = 0
 
@@ -41,6 +46,7 @@ const items = [{
         id: "3"
     }
 ]
+
 
 
 /* functionality to creating different card items*/
@@ -87,7 +93,15 @@ let allButtons = document.querySelectorAll(".but");
 allButtons.forEach(Button => {
     Button.addEventListener('click', () => {
         let clicked = Button.id;
-        console.log(clicked);
+
+        if ((JSON.parse(localStorage.getItem("orders")) != null || JSON.parse(localStorage.getItem("orders")) != undefined) && JSON.parse(localStorage.getItem("orders")).hasOwnProperty(clicked)) {
+            console.log();
+            counter = JSON.parse(localStorage.getItem("orders"))[clicked].quantity;
+
+        } else {
+            counter = 0;
+        }
+
 
         let addItem = document.createElement("div");
         addItem.classList.add("addItem")
@@ -109,13 +123,14 @@ allButtons.forEach(Button => {
         let itemsDiv = document.getElementById(clicked);
         itemsDiv.parentNode.appendChild(addItem)
 
+        //event listener to remove popup from the dom
+
         document.querySelector(".addItem").addEventListener("mouseout", e => {
             let itemToremove = document.querySelector(".addItem")
             if (!itemToremove.contains(e.relatedTarget)) {
                 itemToremove.parentNode.removeChild(itemToremove)
                 console.log("out of sight");
                 counter = 0
-                itemToremove = ""
             }
 
 
@@ -124,17 +139,35 @@ allButtons.forEach(Button => {
         document.querySelector(".plus").addEventListener("click", () => {
             counter += 1;
             count.innerText = counter;
-            storeAnItem(document.getElementById(clicked).id, '-')
+            storeAnItem(document.getElementById(clicked).id, '+')
+            setCartNumbers();
 
         })
 
         document.querySelector(".minus").addEventListener("click", () => {
-            if (counter == 0) {
-                counter = 0
+
+            orders = JSON.parse(localStorage.getItem("orders"))
+            counter = orders[clicked].quantity;
+            if (orders != null || orders != undefined) {
+
+                if (counter <= 1) {
+                    counter -= 1;
+                    delete orders[clicked]
+                    count.innerText = counter;
+                    localStorage.setItem("orders", JSON.stringify(orders));
+                    console.log(orders);
+                    setCartNumbers();
+                } else {
+                    counter -= 1;
+                    count.innerText = counter;
+                    storeAnItem(document.getElementById(clicked).id, '-')
+                    setCartNumbers();
+                }
             } else {
-                counter -= 1;
+                console.log("there are no items yet");
             }
-            count.innerText = counter;
+
+            setCartNumbers();
 
         })
 
@@ -147,14 +180,14 @@ allButtons.forEach(Button => {
 //#region  functionality to store items
 
 function storeAnItem(id, action) {
-    switch (id) {
+    switch (action) {
         case "+":
             plusItem(id)
 
             break;
 
         case "-":
-            plusItem(id)
+            minusItem(id)
             break;
 
         default:
@@ -162,11 +195,41 @@ function storeAnItem(id, action) {
     }
 }
 
-function minusItem(key) {
+// functionality to add items to local storage
+function plusItem(key) {
+    orders = JSON.parse(localStorage.getItem("orders"))
+    if (orders == null || orders == undefined) {
+        orders = {
+            [key]: {
+                id: key,
+                name: items[key - 1].name,
+                price: items[key - 1].price,
+                quantity: counter
+            }
+        }
+        localStorage.setItem("orders", JSON.stringify(orders))
+    } else {
+        if (orders.hasOwnProperty(key)) {
+            orders[key].quantity = counter;
+            localStorage.setItem("orders", JSON.stringify(orders))
 
+        } else {
+            orders[key] = {
+                id: key,
+                name: items[key - 1].name,
+                price: items[key - 1].price,
+                quantity: counter
+            }
+            localStorage.setItem("orders", JSON.stringify(orders))
+        }
+
+
+    }
 }
 
-function plusItem(key) {
+// functionality to update items on local storage
+
+function minusItem(key) {
     orders = JSON.parse(localStorage.getItem("orders"))
 
     if (orders.hasOwnProperty(key)) {
@@ -180,35 +243,10 @@ function plusItem(key) {
             price: items[key - 1].price,
             quantity: counter
         }
+        localStorage.setItem("orders", JSON.stringify(orders))
     }
+
+
 
 }
 //#endregion
-
-// let popupCounter = document.querySelectorAll(".orderCount");
-
-// popupCounter.addEventListener("focusout", () => {
-//     popupCounter.parentNode.removeChild(popupCounter)
-// })
-
-
-
-// document.querySelectorAll(".plus").forEach(elem => {
-//     elem.addEventListener("click", () => {
-//         document.querySelectorAll(".count")[0].innerText += 1;
-//         console.log("clicked");
-//     })
-// });
-
-
-// (document.querySelectorAll(".orderCount")).forEach(element => {
-//     element.addEventListener('focusout', () => {
-//         let thisCount = document.querySelector[0];
-//         thisCount.parentNode.removeChild(thisCount);
-//     })
-// // });
-
-
-// function handleClickAddtoCart(params) {
-
-// }

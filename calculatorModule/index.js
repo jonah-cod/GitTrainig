@@ -195,6 +195,7 @@ function storeAnItem(id, action) {
     }
 }
 
+
 // functionality to add items to local storage
 function plusItem(key) {
     orders = JSON.parse(localStorage.getItem("orders"))

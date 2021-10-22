@@ -7,11 +7,7 @@ body {
 
 
 /* .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    max-width: 1920px
 } */
 
 nav {
@@ -128,12 +124,12 @@ td {
 }
 
 .carousel img {
-    width: 100%;
-    max-height: 300px;
+    width: 90%;
+    height: 300px;
 }
 
-.myslides {
-    display: none;
+.myslide {
+    margin: 0 auto;
 }
 
 
@@ -194,7 +190,7 @@ td {
 }
 
 .item>p {
-    margin-left: 10px;
+    margin: 10px;
 }
 
 .but {
@@ -210,7 +206,11 @@ td {
 
 .item>small {
     display: block;
-    margin: 10px;
+    margin: 5px 10px;
+}
+
+.item>h4 {
+    margin: 0 10px;
 }
 
 .item>img {

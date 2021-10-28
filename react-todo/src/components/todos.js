@@ -11,9 +11,10 @@ const Todos = () => {
     
     return (
         <div className="todos">
-            {todos.map(todo=>(<Todo key={todo.id} todo={todo}/>)
+            {todos.length? todos.map(todo=>(<Todo key={todo.id} todo={todo}/>)
                 
-            )}
+            ): <h4>Your todos will appear here!</h4>}
+            
             
         </div>
     )

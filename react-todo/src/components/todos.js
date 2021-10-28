@@ -11,9 +11,13 @@ const Todos = () => {
     
     return (
         <div className="todos">
-            {todos.length? todos.map(todo=>(<Todo key={todo.id} todo={todo}/>)
+            <h3>My todos</h3>
+            {todos.length? todos.map(todo=>(
                 
-            ): <h4>Your todos will appear here!</h4>}
+            <Todo key={todo.id} todo={todo}/>
+            )
+                
+            ): <h5>Your todos will appear here!</h5>}
             
             
         </div>

@@ -1,4 +1,5 @@
-const express = require("express")
+const express = require("express");
+const { ConnectionStates } = require("mongoose");
 const auth = require("./authenticateuser")
 
 
@@ -15,7 +16,7 @@ app.get('/', (req, res)=>{
 })
 
 
-
+//user registration middleware
 const authendicate = (req, res, next)=>{
     let error = {password:[]}
     let name = req.body.name
@@ -40,8 +41,7 @@ const authendicate = (req, res, next)=>{
     
 
     if (!error.password.length) {
-        //console.log(genHash(password));
-        
+                
         let user = {
             _id: email,
             name,
@@ -49,22 +49,27 @@ const authendicate = (req, res, next)=>{
         }
         auth.genHash(passwod, user)
         //console.log(user)
-        next(user);
+        next();
         
 
     }else{
         
         res.send((error.password).join("\n"))
     }
+
     
 }
 
-function userLogin(req, res, next) {
-    let username = req.body.email;
-    let pass = req.body.password;
-    console.log(auth.login(username, pass))
+//user login verification
 
-    if(auth.login(username, pass)){
+async function userLogin(req, res, next) {
+    
+    let username = req.body.email;
+    console.log(username)
+    let pass = req.body.password;
+    const isvalid = await auth.login(username, pass);
+    //console.log(isvalid)
+    if(isvalid){
         next();
     }else{
         res.send("Check your email and password!")
@@ -83,7 +88,7 @@ app.post("/login", userLogin, (req, res)=>{
 
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, ()=>{
     console.log(`Server running at port:${PORT}`)

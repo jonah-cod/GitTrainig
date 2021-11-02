@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt")
 const Usermodel = require("./data")
 
-function genHash(pass, user) {
+ function genHash(pass, user) {
     
-    let hash = bcrypt.hash(pass, 3, (err, hash)=>{
+    bcrypt.hash(pass, 3, (err, has)=>{
         
-        user = {...user, password:hash}
+        user = {...user, password:has}
         let newUser = new Usermodel.User(user)
         newUser.save((err, doc)=>{
             if(err) return console.log(err);
@@ -19,15 +19,18 @@ function genHash(pass, user) {
     
 }
 
-function login (username, pass){
-    
-    Usermodel.User.findOne({email: username}, (err, data)=>{
+ const  login = async (username, pass)=>{
+     try {
+        const foundUser = await Usermodel.User.findOne({_id: username})
+        console.log(foundUser);
+        if(!foundUser) return false;
+
+        const authenticated= await bcrypt.compare(pass, foundUser.password);
         
-        let authendicated=bcrypt.compare(pass, data.password).then((err, data)=>{
-            return true
-        })
-        
-    })
+        return authenticated
+    } catch (error) {
+        console.log(error)
+    }
     
 }
 

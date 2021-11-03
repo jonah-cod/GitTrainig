@@ -1,0 +1,147 @@
+export const cars = [
+    {
+        id:1,
+        name: "Audi",
+        model: "rs 5",
+        image: "https://tinyurl.com/36wx8c78",
+        price: 75900,
+        Class: "Luxury/ Sports car",
+        body_style: "4-door",
+        horse_power: "450 hp",
+        Accelaration: "0-60mph: 3.8seconds",
+        transmission: "8-Speed Automatic"
+    },
+    {
+        id:2,
+        name: "Ferrari",
+        model: "roadster",
+        image: "https://tinyurl.com/enu9tc",
+        price: 276550,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "591 hp",
+        Accelaration: "0-6mph: 2.5seconds",
+        transmission: "7-Speed Automatic"
+    },
+    {
+        id:3,
+        name: "Porsche",
+        model: "taycan",
+        image: "https://tinyurl.com/5eysdnsp",
+        price: 79900,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 3.0seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:4,
+        name: "Audi",
+        model: "s5",
+        image: "https://tinyurl.com/y4vyh8sy",
+        price: 52500,
+        Class: "executive car",
+        body_style: "4-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 4.2seconds",
+        transmission: "6-Speed manual"
+    },
+    {
+        id:5,
+        name: "BMW",
+        model: "m4",
+        image: "https://tinyurl.com/3hjbp7ma",
+        price: 72795,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "473 hp",
+        Accelaration: "0-62ph: 4.1 seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:6,
+        name: "Porsche",
+        model: "gt3 rs",
+        image: "https://tinyurl.com/nmk9ebdw",
+        price: 187500,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 3.0 seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:7,
+        name: "Porsche",
+        model: "taycan",
+        image: "https://tinyurl.com/5eysdnsp",
+        price: 79900,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 3.0seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:8,
+        name: "Audi",
+        model: "s5",
+        image: "https://tinyurl.com/y4vyh8sy",
+        price: 52500,
+        Class: "executive car",
+        body_style: "4-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 4.2seconds",
+        transmission: "6-Speed manual"
+    },
+    {
+        id:9,
+        name: "BMW",
+        model: "m4",
+        image: "https://tinyurl.com/3hjbp7ma",
+        price: 72795,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "473 hp",
+        Accelaration: "0-62ph: 4.1 seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:10,
+        name: "Porsche",
+        model: "gt3 rs",
+        image: "https://tinyurl.com/nmk9ebdw",
+        price: 187500,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "520 hp",
+        Accelaration: "0-60mph: 3.0 seconds",
+        transmission: "7-Speed Dual Clutch"
+    },
+    {
+        id:11,
+        name: "Audi",
+        model: "rs 5",
+        image: "https://tinyurl.com/36wx8c78",
+        price: 75900,
+        Class: "Luxury/ Sports car",
+        body_style: "4-door",
+        horse_power: "450 hp",
+        Accelaration: "0-60mph: 3.8seconds",
+        transmission: "8-Speed Automatic"
+    },
+    {
+        id:12,
+        name: "Ferrari",
+        model: "roadster",
+        image: "https://tinyurl.com/enu9tc",
+        price: 276550,
+        Class: "Sports car",
+        body_style: "2-door",
+        horse_power: "591 hp",
+        Accelaration: "0-6mph: 2.5seconds",
+        transmission: "7-Speed Automatic"
+    }
+    
+]

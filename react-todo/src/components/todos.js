@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import Todo from './todo'
+import { useState } from 'react'
      
 
 
@@ -8,6 +9,7 @@ import Todo from './todo'
 
 const Todos = () => {
     const {todos} =  useSelector(state => state)
+
     
     return (
         <div className="todos">

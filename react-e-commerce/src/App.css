@@ -1,0 +1,266 @@
+body {
+    color: #3A3335;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navBar>img {
+    width: 100px;
+}
+
+.navBar {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    background-color: #3A3335;
+    width: 100%;
+    z-index: 100;
+}
+
+.navs {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 450px;
+}
+
+.searchBar {
+    position: relative;
+}
+
+.searchBar>input {
+    border-radius: 15px;
+    outline: none;
+    border: 2px #EB5E55 solid;
+    padding: 5px 10px;
+    color: #3A3335;
+}
+
+.searchBar>input::placeholder {
+    color: #3A3335;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    color: #EB5E55;
+    z-index: 100;
+}
+
+.searchIcon:hover {
+    cursor: pointer;
+}
+
+.navs>button {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 10px;
+    transition: .2s ease-in;
+}
+
+.navs>button:hover {
+    color: #EB5E55;
+    cursor: pointer;
+}
+
+.slider {
+    margin-top: 70px;
+    max-width: 600px;
+    height: 60vh;
+    position: relative;
+}
+
+.leftArrow {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    z-index: 1000px;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3A3335;
+    color: #FFFFFF;
+    transition: all .3s ease-in;
+}
+
+.rightArrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    z-index: 1000px;
+}
+
+.slider>img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* @media (max-width:420px) {
+    .navBar {
+        justify-content: space-between;
+    }
+    .navs {
+        gap: 0;
+        justify-content: space-evenly;
+    }
+    .navBar {
+        justify-content: space-between;
+    }
+} */
+
+.cars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px auto;
+    width: 100%;
+    background-color: #f0ecec;
+}
+
+.car {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    width: 320px;
+    margin: 10px auto;
+    transition: .3s ease-in-out;
+}
+
+.car>h4 {
+    margin: 5px;
+    color: #EB5E55;
+}
+
+.but {
+    margin: 10px;
+    padding: 3px 20px;
+    background-color: #EB5E55;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #f0ecec;
+    font-weight: 600;
+}
+
+.but:hover {
+    background-color: #ca5e56;
+    cursor: pointer;
+}
+
+.car>p,
+.car>h5 {
+    margin: 5px 10px;
+}
+
+.car:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 1px 5px 1px #3A3335;
+}
+
+.car>img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+@media (max-width: 900px) {
+    .cars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .car {
+        width: 280px;
+    }
+}
+
+@media (max-width:768px) {
+    .navBar {
+        justify-content: space-between;
+    }
+    .navs {
+        gap: 10px;
+    }
+    .slider {
+        height: 40vh;
+    }
+    .cars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .car {
+        width: 230px;
+    }
+    .car>img {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+    .car {
+        width: 190px;
+    }
+    .car>height {
+        height: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cars {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+    .car {
+        width: 170px;
+    }
+    .car>height {
+        height: 150px;
+    }
+    .navBar {
+        justify-content: space-between;
+    }
+    .navs {
+        justify-content: flex-end;
+        gap: 0;
+        width: 150px;
+    }
+    .navs>button:first-child {
+        display: none;
+    }
+    .navs>button {
+        padding: 0;
+        margin: 0;
+    }
+    .searchBar>input {
+        width: 150px;
+    }
+    .slider>img {
+        object-fit: cover;
+    }
+}

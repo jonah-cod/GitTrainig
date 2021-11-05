@@ -38,11 +38,16 @@ async function encrypt(pass) {
 
 async function auth(data) {
     let {username, pass} = data
-    let {recordset} = await getUser(username)
+    try {
+        let {recordset} = await getUser(username)
     
-    if(recordset){
+        if(recordset){
         return await bcrypt.compare(pass, recordset[0].pass)
     }
+    } catch (error) {
+        console.log(error.message)
+    }
+    
 }
 
 module.exports = {validate, auth, encrypt}

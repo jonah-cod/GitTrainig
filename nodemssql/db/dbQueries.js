@@ -25,4 +25,27 @@ async function getUser(id) {
     
     
 }
-module.exports = {saveUser, getUser}
+
+async function updateUser(params) {
+    let {fName, sName, email, pName} = params
+    try {
+        await sql.connect(sqlconfig)
+        await sql.query `update usersData 
+        set fname=${fName}, sName=${sName}, pName=${pName} 
+        where username=${email}`
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+async function deleteUser(param) {
+    
+    try {
+        await sql.connect(sqlconfig);
+        await sql.query `delete from usersData where username=${param}`
+    } catch (error) {
+        console.log(error.message)
+    }
+    
+}
+module.exports = {saveUser, getUser, deleteUser, updateUser}

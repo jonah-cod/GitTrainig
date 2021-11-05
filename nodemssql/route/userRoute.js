@@ -1,6 +1,6 @@
 const express = require('express');
 const {validate, encrypt, auth} = require('../middlewares/validate')
-const { saveUser, getUser } = require('../db/dbQueries')
+const { saveUser, updateUser} = require('../db/dbQueries')
 
 let router = express.Router();
 
@@ -37,6 +37,24 @@ router.post('/login', async(req, res)=>{
         res.send('wrong credentials please try again')
     }
 
+})
+
+router.put('/update', async(req, res)=>{
+    let data = req.body
+    console.log(data);
+    try {
+        await updateUser(data)
+        res.send('user details updated successfully')
+        console.log('user details updated successfully')
+        
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+})
+
+router.delete('/delete', async (req, res)=>{
+    let id = req.body.email;
 })
 
 module.exports = router;

@@ -1,3 +1,4 @@
+"use strict";
 const express = require ('express');
 require('dotenv').config();
 const router = require('./route/userRoute')

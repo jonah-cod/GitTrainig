@@ -1,6 +1,7 @@
 const express = require('express');
 const {validate, encrypt, auth} = require('../middlewares/validate')
-const { saveUser, updateUser} = require('../db/dbQueries')
+const { saveUser, updateUser, deleteUser} = require('../db/dbQueries');
+const { user } = require('../db/db');
 
 let router = express.Router();
 
@@ -41,7 +42,7 @@ router.post('/login', async(req, res)=>{
 
 router.put('/update', async(req, res)=>{
     let data = req.body
-    console.log(data);
+    //console.log(data);
     try {
         await updateUser(data)
         res.send('user details updated successfully')
@@ -55,6 +56,12 @@ router.put('/update', async(req, res)=>{
 
 router.delete('/delete', async (req, res)=>{
     let id = req.body.email;
+    try {
+        await deleteUser(id)
+        res.send("user deleted successfully")
+    } catch (error) {
+        console.log(error.message)
+    }
 })
 
 module.exports = router;

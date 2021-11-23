@@ -9,9 +9,10 @@ const Signinform = () => {
     const handleLogin = (e)=>{
         e.preventDefault();
         console.log(email, password);
+
      axios.post('http://localhost:3000/users/login', {
-         email,
-         password
+         email:email,
+         password:password
      })
     }
     return (

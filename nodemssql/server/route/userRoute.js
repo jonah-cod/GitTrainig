@@ -31,6 +31,7 @@ router.post('/login', async(req, res)=>{
         username: req.body.email,
         pass: req.body.password
     }
+    console.log(req.body);
     let authed = await auth(data)
     if(authed){
         res.send('user logged in successfully')

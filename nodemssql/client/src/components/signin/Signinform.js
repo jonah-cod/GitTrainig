@@ -6,13 +6,18 @@ const Signinform = () => {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     
-    const handleLogin = (e)=>{
+    const handleLogin = async (e)=>{
         e.preventDefault();
         console.log(email, password);
 
-     axios.post('http://localhost:3000/users/login', {
+     await axios.post('http://localhost:3000/users/login', {
          email:email,
          password:password
+     }).then((res)=>{
+        let responce = res.data;
+        if (responce) {
+            alert(responce);
+        }
      })
     }
     return (

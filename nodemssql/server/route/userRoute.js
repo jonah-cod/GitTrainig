@@ -5,7 +5,7 @@ const { user } = require('../db/db');
 
 let router = express.Router();
 
-router.post('/sign_in', validate, async( req, res )=>{
+router.post('/sign_up', validate, async( req, res )=>{
    let pass = req.body.password
    console.log(req.body);
    let data = {
@@ -23,7 +23,7 @@ router.post('/sign_in', validate, async( req, res )=>{
         console.log(error.message)
     }
     
-    res.send('received data')
+    res.send('new user saved')
     
 })
 

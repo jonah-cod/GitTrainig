@@ -11,11 +11,16 @@ const Signupform = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         console.log(email, name, password, cpassword);
-        await axios.post('http://localhost:3000/users/sign_in', {
+        await axios.post('http://localhost:3000/users/sign_up', {
             name:name,
             email:email,
             password:password,
             cPassword:cpassword
+        }).then((res)=>{
+            let responce = res.data;
+            if(responce){
+                alert(responce)
+            }
         })
 
     }

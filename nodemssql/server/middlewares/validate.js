@@ -4,6 +4,7 @@ const { saveUser, getUser } = require('../db/dbQueries')
 
 //#region middleware validating the passwords
 async function validate (req, res, next){
+    console.log(req.body);
     let errors = []
     let pass = req.body.password;
     let cpass = req.body.cPassword;

@@ -7,6 +7,7 @@ let router = express.Router();
 
 router.post('/sign_in', validate, async( req, res )=>{
    let pass = req.body.password
+   console.log(req.body);
    let data = {
     firstName: req.body.fName,
     secondName: req.body.sName,

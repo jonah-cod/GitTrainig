@@ -9,14 +9,14 @@ const Signupform = () => {
     const [cpassword, setcpassword] = useState('');
 
     const handleSubmit = async(e)=>{
-        e.preventDeafault();
-        let newUser = {
-            name,
-            email,
-            password,
-            cpassword
-        }
-        await axios.post('https://localhost:3000/users/sign_in', newUser)
+        e.preventDefault();
+        console.log(email, name, password, cpassword);
+        await axios.post('http://localhost:3000/users/sign_in', {
+            name:name,
+            email:email,
+            password:password,
+            cPassword:cpassword
+        })
 
     }
     return (
